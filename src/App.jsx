@@ -15,7 +15,6 @@ import {
 import {
   Route,
   RouterProvider,
-  Routes,
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
@@ -29,13 +28,15 @@ const router = createBrowserRouter(
         <Route index element={<Landing />} />
         <Route path="about" element={<About />} />
         <Route path="products" element={<Products />} />
-        <Route path="/products/:id" element={<SingleProduct />} />
+        <Route path="products/:id" element={<SingleProduct />} />
         <Route path="cart" element={<Cart />} />
-        <Route path="/orders" element={<Orders />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="orders" element={<Orders />} />
+        <Route path="error" element={<Error />} />
+        <Route path="checkout" element={<Checkout />} />
       </Route>
-      <Route path="/register" element={<Register />} />
-      <Route path="/login" element={<Login />} />
+
+      <Route path="/register" element={<Register />} errorElement={<Error />} />
+      <Route path="/login" element={<Login />} errorElement={<Error />} />
     </>
   )
 );
