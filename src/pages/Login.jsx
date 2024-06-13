@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import { login_btn, login_form_input } from "../data";
 import { SubmitBtn, FormInput } from "../components";
 import { Form, Link } from "react-router-dom";
 
 const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
-
-  const handleSubmit = () => {};
 
   return (
     <section className="hero min-h-screen bg-base-200">
@@ -17,10 +14,9 @@ const Login = () => {
           ) : (
             <Form
               method="post"
-              onSubmit={handleSubmit}
-              className="card w-96 p-14 bg-secondary flex flex-col gap-y-5"
+              className="card w-96 p-14 flex flex-col gap-y-5 shadow-2xl"
             >
-              <h3 className="text-3xl font-bold">Login</h3>
+              <h3 className="text-3xl font-bold mb-6">Login</h3>
               <FormInput
                 type="email"
                 label="email"
@@ -40,8 +36,11 @@ const Login = () => {
                 </button>
               </div>
               <p className="font-bold">
-                Haven't registered yet? 
-                <Link to="/register" className="ml-2 link link-hover link-primary">
+                Haven't registered yet?
+                <Link
+                  to="/register"
+                  className="ml-2 link link-hover link-primary"
+                >
                   Register
                 </Link>
               </p>
