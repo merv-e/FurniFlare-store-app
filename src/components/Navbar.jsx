@@ -1,10 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { GrCart } from "react-icons/gr";
 import { FaBars } from "react-icons/fa6";
+import { BsSun, BsFillMoonFill, BsCartFill } from "react-icons/bs";
 import NavLinks from "./NavLinks";
 
+const themes = {
+  cmyk: "cmyk",
+  synthwave: "synthwave",
+};
+
+const getThemeFromLocalStorage = () => {
+  return localStorage.getItem("theme" || themes.cmyk);
+};
+
 const Navbar = () => {
+  const [theme, setTheme] = useState(getThemeFromLocalStorage);
+
+  const handleTheme = () => {
+    const { cmyk, synthwave } = themes;
+    const newTheme = theme === cmyk ? synthwave : cmyk;
+    setTheme(newTheme);
+  };
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
   return (
     <nav className="navbar bg-base-200">
       <div className="navbar align-element">
@@ -33,9 +55,14 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
+          <label className="swap swap-rotate">
+            <input type="checkbox" onChange={handleTheme} />
+            <BsSun className="swap-on h-4 w-4" />
+            <BsFillMoonFill className="swap-off h-4 w-4" />
+          </label>
           <NavLink to="cart" className="btn btn-ghost btn-circle btn-md ml-4">
             <div className="indicator">
-              <GrCart className="h-6 w-6" />
+              <BsCartFill className="h-6 w-6" />
               <span className="badge badge-sm badge-primary indicator-item">
                 8
               </span>

@@ -11,7 +11,6 @@ const NavLinks = () => {
     { id: 6, url: "orders", text: "orders" },
   ];
 
-  console.log(links.map((link) => link.text));
   return (
     <>
       {links.map((link) => (
