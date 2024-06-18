@@ -19,14 +19,14 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
+import { loader as landingPageLoader} from "./pages/Landing";
 
-/* TODO: MAKE SURE TO SHOW ORDERS AND CHECKOUT PAGES IF USER IS LOGGED IN! */
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<HomeLayout />} errorElement={<Error />}>
-        <Route index element={<Landing />} errorElement={<ErrorElement />} />
+        <Route index element={<Landing />} errorElement={<ErrorElement />} loader={landingPageLoader} />
         <Route path="about" element={<About />} />
         <Route path="products" element={<Products />} />
         <Route path="products/:id" element={<SingleProduct />} />
