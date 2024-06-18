@@ -19,8 +19,8 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import { loader as landingPageLoader} from "./pages/Landing";
 
+import { loader as landingPageLoader} from "./pages/Landing";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
