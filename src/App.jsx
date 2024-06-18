@@ -1,3 +1,4 @@
+import { ErrorElement } from "./components";
 import {
   About,
   Cart,
@@ -25,7 +26,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<HomeLayout />} errorElement={<Error />}>
-        <Route index element={<Landing />} />
+        <Route index element={<Landing />} errorElement={<ErrorElement />} />
         <Route path="about" element={<About />} />
         <Route path="products" element={<Products />} />
         <Route path="products/:id" element={<SingleProduct />} />
