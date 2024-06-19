@@ -20,16 +20,27 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 
-import { loader as landingPageLoader} from "./pages/Landing";
+import { loader as landingPageLoader } from "./pages/Landing";
+import { loader as SingleProductLoader } from "./pages/SingleProduct";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<HomeLayout />} errorElement={<Error />}>
-        <Route index element={<Landing />} errorElement={<ErrorElement />} loader={landingPageLoader} />
+        <Route
+          index
+          element={<Landing />}
+          errorElement={<ErrorElement />}
+          loader={landingPageLoader}
+        />
         <Route path="about" element={<About />} />
         <Route path="products" element={<Products />} />
-        <Route path="products/:id" element={<SingleProduct />} />
+        <Route
+          path="products/:id"
+          loader={SingleProductLoader}
+          errorElement={<ErrorElement />}
+          element={<SingleProduct />}
+        />
         <Route path="cart" element={<Cart />} />
         <Route path="orders" element={<Orders />} />
         <Route path="error" element={<Error />} />
