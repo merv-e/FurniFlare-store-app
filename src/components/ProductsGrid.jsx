@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { formatPrice } from "../utils";
 
 const ProductsGrid = () => {
   const { products } = useLoaderData();
@@ -10,7 +11,7 @@ const ProductsGrid = () => {
         const { title, price, image } = product.attributes;
         return (
           <div
-            className="card w-80 h-96 bg-gray-900 shadow-xl"
+            className="card w-80 h-96 bg-gray-800 shadow-xl"
             key={product.id}
           >
             <figure>
@@ -18,7 +19,7 @@ const ProductsGrid = () => {
             </figure>
             <div className="card-body text-white">
               <h2 className="card-title">{title}</h2>
-              <p className="font-bold">${price}</p>
+              <p className="font-bold text-xl text-secondary">{formatPrice(price)}</p>
               <div className="card-actions justify-end">
                 <Link to={`/products/${product.id}`}>
                   <button className="btn btn-primary">Buy Now</button>
