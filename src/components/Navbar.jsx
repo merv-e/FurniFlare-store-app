@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa6";
 import { BsSun, BsFillMoonFill, BsCartFill } from "react-icons/bs";
 import NavLinks from "./NavLinks";
+import logo from "../assets/logo/logo.png"
 
 const themes = {
   cmyk: "cmyk",
@@ -33,9 +34,9 @@ const Navbar = () => {
         <div className="navbar-start">
           <NavLink
             to="/"
-            className="hidden lg:flex btn btn-primary text-3xl items-center"
+            // className="hidden lg:flex btn btn-primary text-3xl items-center"
           >
-            FurniFlare
+            <img src={logo} className="h-20"/>
           </NavLink>
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
