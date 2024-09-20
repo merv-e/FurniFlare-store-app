@@ -22,7 +22,7 @@ import {
 
 import { loader as landingPageLoader } from "./pages/Landing";
 import { loader as SingleProductLoader } from "./pages/SingleProduct";
-import { loader as ProductsLoader } from "./pages/Products";
+import { loader as productsLoader } from "./pages/Products";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -39,7 +39,7 @@ const router = createBrowserRouter(
           path="products"
           element={<Products />}
           errorElement={<ErrorElement />}
-          loader={ProductsLoader}
+          loader={productsLoader}
         />
         <Route
           path="products/:id"

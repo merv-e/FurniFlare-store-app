@@ -1,16 +1,15 @@
-import React from 'react'
-import {Filters, PaginationContainer, ProductsContainer} from "../components"
-import { customFetch } from '../utils'
+import { Filters, PaginationContainer, ProductsContainer } from "../components";
+import { customFetch } from "../utils";
 
 const url = "/products";
 
-export const loader = async() => {
-  const resp = await customFetch(url)
-  const products = resp.data.data
-  const meta = resp.data.meta
-  
-  return {products, meta}
-}
+export const loader = async ({ request }) => {
+  const resp = await customFetch(url);
+  const products = resp.data.data;
+  const meta = resp.data.meta;
+
+  return { products, meta };
+};
 
 const Products = () => {
   return (
@@ -20,6 +19,6 @@ const Products = () => {
       <PaginationContainer />
     </div>
   );
-}
+};
 
-export default Products
+export default Products;
