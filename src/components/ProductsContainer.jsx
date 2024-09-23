@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ProductsList from "./ProductsList";
 import ProductsGrid from "./ProductsGrid";
 import { useLoaderData } from "react-router-dom";
